@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+  /* Colors */
+  --clr-accent: 277 91% 56%;
+  --clr-error: 0 82% 63%;
+  --clr-success: 51 70% 50%;
+  --clr-light: 0 0% 100%;
+  --clr-primary-100: 220 37% 97%;
+  --clr-primary-200: 216 47% 78%;
+  --clr-primary-300: 219 13% 44%;
+  --clr-primary-400: 215 27% 32%;
+  --clr-primary-500: 216 25% 25%;
+
+  /* Typography */
+  --fs-body: clamp(0.75rem, 0.6607rem + 0.4464vw, 0.875rem);
+  --fs-heading-base: clamp(1.125rem, 0.6786rem + 2.2321vw, 1.75rem);
+  --fs-heading-md: clamp(1.25rem, 0.5357rem + 3.5714vw, 2.25rem);
+  --fs-heading-lg: clamp(2.5rem, 1.4286rem + 5.3571vw, 4rem);
+  --fs-display: clamp(5.5rem, 3rem + 12.5vw, 9rem);
+
+  --lh-body: 1.5;
+  --lh-title: 1.2;
+  --lh-none: 1;
+
+  --fw-normal: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  --ff-serif: 'Rubik', serif;
+}
+
+:root[data-theme='light'] {
+  --clr-background: var(--clr-primary-100);
+  --clr-surface: var(--clr-light);
+  --clr-text: var(--clr-primary-300);
+  --clr-heading: var(--clr-primary-500);
+}
+
+:root[data-theme='dark'] {
+  --clr-background: var(--clr-primary-500);
+  --clr-surface: var(--clr-primary-400);
+  --clr-text: var(--clr-primary-200);
+  --clr-heading: var(--clr-light);
+}
