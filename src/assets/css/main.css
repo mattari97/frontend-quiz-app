@@ -8,7 +8,7 @@ html {
 
 body {
   background-color: hsl(var(--clr-background));
-  color: hsl(var(--clr-text-100));
+  color: hsl(var(--clr-text));
   font-family: var(--ff-serif);
   font-weight: var(--fw-normal);
   font-size: var(--fs-base);
