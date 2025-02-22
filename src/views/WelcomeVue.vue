@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { quizzes } from '@/assets/json/quizzes.json';
 import welcomeData from '@/assets/json/welcome.json';
+import CategoryCard from '@/components/CategoryCard.vue';
 </script>
 
 <template>
@@ -13,12 +14,13 @@ import welcomeData from '@/assets/json/welcome.json';
       <p class="welcome-hero__caption">{{ welcomeData.caption }}</p>
     </section>
     <section class="welcome-categories">
-      <button v-for="(quiz, index) in quizzes" :key="index" class="welcome-categories__button">
-        <div class="welcome-categories__image" :style="{ 'background-color': quiz.accentColor }">
-          <img :src="quiz.icon" alt="" />
-        </div>
-        <span class="welcome-categories__label">{{ quiz.title }}</span>
-      </button>
+      <CategoryCard
+        v-for="(quiz, index) in quizzes"
+        :key="index"
+        :accent-color="quiz.accentColor"
+        :icon="quiz.icon"
+        :title="quiz.title"
+      />
     </section>
   </main>
 </template>
@@ -58,30 +60,5 @@ import welcomeData from '@/assets/json/welcome.json';
 .welcome-categories {
   display: grid;
   row-gap: 0.75rem;
-
-  &__button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    padding: 0.75rem;
-    margin-inline: 1.5rem;
-    border-radius: 0.75rem;
-    background-color: hsl(var(--clr-surface));
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-  }
-
-  &__image {
-    display: grid;
-    place-items: center;
-    padding: 0.5rem;
-    border-radius: 0.375rem;
-  }
-
-  &__label {
-    display: block;
-    font-size: var(--fs-heading-base);
-    color: hsl(var(--clr-heading));
-  }
 }
 </style>
