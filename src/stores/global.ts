@@ -13,9 +13,14 @@ export const useGlobalStore = defineStore('global', () => {
   const answers = ref<Answer[]>([]);
   const questionIndex = ref(0);
   const quiz = ref<Quiz | null>(null);
+  const showResults = ref(false);
 
   const goToNextQuestion = () => {
     questionIndex.value += 1;
+
+    if (questionIndex.value === quiz.value?.questions.length) {
+      showResults.value = true;
+    }
   };
 
   const setAnswer = (answer: string) => {
@@ -36,6 +41,7 @@ export const useGlobalStore = defineStore('global', () => {
       correctAnswer: question.answer,
       validated: false,
     }));
+    showResults.value = false;
   };
 
   const validateAnswer = () => {
@@ -46,6 +52,7 @@ export const useGlobalStore = defineStore('global', () => {
     answers,
     questionIndex,
     quiz,
+    showResults,
     goToNextQuestion,
     setAnswer,
     setQuiz,

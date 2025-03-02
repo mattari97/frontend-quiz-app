@@ -1,7 +1,7 @@
 <script setup lang="ts">
 interface Props {
   label: string;
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const props = defineProps<Props>();

@@ -18,4 +18,5 @@ body {
 
 #app {
   flex-grow: 1;
+  padding-inline: 1.5rem;
 }
