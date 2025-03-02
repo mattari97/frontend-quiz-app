@@ -19,4 +19,17 @@ body {
 #app {
   flex-grow: 1;
   padding-inline: 1.5rem;
+  background-size: auto;
+  background-position: top left;
+  background-repeat: no-repeat;
+  background-image: var(--bg-mobile);
+
+  @media (min-width: 768px) {
+    background-image: var(--bg-tablet);
+  }
+
+  @media (min-width: 1280px) {
+    background-size: 100%;
+    background-image: var(--bg-desktop);
+  }
 }
