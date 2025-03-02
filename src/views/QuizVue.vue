@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import AnswerCard from '@/components/AnswerCard.vue';
-import ProgressBar from '@/components/ProgressBar.vue';
+import QuestionHero from '@/components/QuestionHero.vue';
 import SubmitButton from '@/components/SubmitButton.vue';
 import { useGlobalStore } from '@/stores';
 import { computed } from 'vue';
 
 const store = useGlobalStore();
-const questionCount = computed(() => store.quiz!.questions.length);
 const questionData = computed(() => store.quiz!.questions[store.questionIndex]);
-const progress = computed(() => ((store.questionIndex + 1) / questionCount.value) * 100);
 const isValidated = computed(() => store.answers[store.questionIndex].validated);
 const isSubmitDisabled = computed(
   () => !isValidated.value && !store.answers[store.questionIndex].answer,
@@ -18,7 +16,7 @@ const submitLabel = computed(() => {
     return 'Submit Answer';
   }
 
-  return progress.value === 100 ? 'See Results' : 'Next Question';
+  return store.questionIndex === store.quiz?.questions.length ? 'See Results' : 'Next Question';
 });
 
 const submitAnswer = () => {
@@ -27,21 +25,16 @@ const submitAnswer = () => {
     return;
   }
 
-  if (store.questionIndex + 1 < questionCount.value) {
-    store.goToNextQuestion();
-    return;
-  }
-
-  // Show results
+  store.goToNextQuestion();
 };
+
+const resetQuiz = () => store.setQuiz(null);
 </script>
 
 <template>
   <main class="quiz">
-    <span class="quiz__counter">Question {{ store.questionIndex + 1 }} of {{ questionCount }}</span>
-    <h1 class="quiz__question">{{ questionData.question }}</h1>
-    <ProgressBar :progress="progress" />
-    <div class="quiz__answers">
+    <QuestionHero :question="questionData.question" />
+    <section class="quiz__answers">
       <AnswerCard
         v-for="(answer, index) of questionData.options"
         :key="index"
@@ -49,33 +42,27 @@ const submitAnswer = () => {
         :index="index"
       />
       <SubmitButton :label="submitLabel" :disabled="isSubmitDisabled" @submit="submitAnswer" />
-    </div>
+    </section>
+    <button class="quiz__reset" @click="resetQuiz">Reset Quiz</button>
   </main>
 </template>
 
 <style scoped lang="scss">
 .quiz {
-  padding: 2rem 1.5rem;
-
-  &__counter {
-    font-style: italic;
-    display: block;
-    line-height: var(--lh-none);
-    margin-block-end: 0.75rem;
-  }
-
-  &__question {
-    font-size: var(--fs-heading-md);
-    font-weight: var(--fw-medium);
-    color: hsl(var(--clr-heading));
-    line-height: var(--lh-title);
-    margin-block-end: 1.5rem;
-  }
+  display: grid;
 
   &__answers {
-    margin-block-start: 2.5rem;
     display: grid;
     row-gap: 0.75rem;
+  }
+
+  &__reset {
+    cursor: pointer;
+    justify-self: center;
+    margin-block-start: 1rem;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    color: hsl(var(--clr-heading));
   }
 }
 </style>

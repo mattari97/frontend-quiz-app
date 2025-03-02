@@ -31,7 +31,6 @@ const startQuiz = () => store.setQuiz(props.title);
     gap: 1rem;
     height: 4rem;
     padding-inline: 0.75rem;
-    margin-inline: 1.5rem;
     border-radius: 0.75rem;
     background-color: hsl(var(--clr-surface));
     box-shadow: var(--box-shadow);
