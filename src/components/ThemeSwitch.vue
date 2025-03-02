@@ -40,7 +40,7 @@ onMounted(() => {
   </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 .theme-switch {
   --height: 20px;
   --width: 32px;

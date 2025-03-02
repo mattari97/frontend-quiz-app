@@ -4,7 +4,7 @@
   /* Colors */
   --clr-accent: 277 91% 56%;
   --clr-error: 0 82% 63%;
-  --clr-success: 51 70% 50%;
+  --clr-success: 151 70% 50%;
   --clr-light: 0 0% 100%;
   --clr-primary-100: 220 37% 97%;
   --clr-primary-200: 216 47% 78%;
@@ -14,6 +14,7 @@
 
   /* Typography */
   --fs-body: clamp(0.75rem, 0.6607rem + 0.4464vw, 0.875rem);
+  --fs-heading-sm: clamp(1rem, 0.9774rem + 0.1006vw, 1.75rem);
   --fs-heading-base: clamp(1.125rem, 0.6786rem + 2.2321vw, 1.75rem);
   --fs-heading-md: clamp(1.25rem, 0.5357rem + 3.5714vw, 2.25rem);
   --fs-heading-lg: clamp(2.5rem, 1.4286rem + 5.3571vw, 4rem);
@@ -28,6 +29,8 @@
   --fw-bold: 700;
 
   --ff-serif: 'Rubik', serif;
+
+  --box-shadow: hsl(0 0% 0% / 0.05) 0px 1px 2px 0px;
 }
 
 :root[data-theme='light'] {
