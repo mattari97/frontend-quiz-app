@@ -14,7 +14,7 @@ const startQuiz = () => store.setQuiz(props.title);
 </script>
 
 <template>
-  <button class="category-card__button" @click="startQuiz">
+  <button class="category-card" @click="startQuiz">
     <div class="category-card__image" :style="{ 'background-color': props.accentColor }">
       <img :src="props.icon" alt="" />
     </div>
@@ -24,25 +24,22 @@ const startQuiz = () => store.setQuiz(props.title);
 
 <style scoped lang="scss">
 .category-card {
-  &__button {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    height: 4rem;
-    padding-inline: 0.75rem;
-    border-radius: 0.75rem;
-    background-color: hsl(var(--clr-surface));
-    box-shadow: var(--box-shadow);
-  }
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  gap: var(--quiz-card-gap-inner);
+  border-radius: var(--quiz-card-border-radius);
+  background-color: hsl(var(--clr-surface));
+  box-shadow: var(--box-shadow);
 
   &__image {
     display: grid;
     place-items: center;
-    height: 2.5rem;
+    height: var(--quiz-card-image-height);
     aspect-ratio: 1;
-    padding: 0.5rem;
-    border-radius: 0.375rem;
+    padding: var(--quiz-card-image-padding);
+    border-radius: var(--quiz-card-image-border-radius);
   }
 
   &__label {

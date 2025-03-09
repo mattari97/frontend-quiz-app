@@ -52,6 +52,11 @@ onMounted(() => {
   position: relative;
   border-radius: 100vw;
 
+  @media (min-width: 768px) {
+    --height: 28px;
+    --width: 48px;
+  }
+
   &::before {
     content: '';
     display: block;
