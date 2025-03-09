@@ -44,7 +44,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Go to solution](https://www.frontendmentor.io/solutions/github-user-search-app-vue3---typescript---scss-63J0Il57ZL)
+- Solution URL: [Go to solution](https://www.frontendmentor.io/solutions/frontend-quiz-app-vue3---typescript---scss-yIgU1F2oiJ)
 - Live Site URL: [Go to live site](https://frontend-quiz-app-acdev.vercel.app/)
 
 ## My process
