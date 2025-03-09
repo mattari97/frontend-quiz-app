@@ -69,6 +69,7 @@
   --bg-mobile: url('/images/pattern-background-mobile-light.svg');
   --bg-tablet: url('/images/pattern-background-tablet-light.svg');
   --bg-desktop: url('/images/pattern-background-desktop-light.svg');
+  --focus-outline: 2px solid hsl(var(--clr-primary-500));
 }
 
 :root[data-theme='dark'] {
@@ -80,4 +81,5 @@
   --bg-mobile: url('/images/pattern-background-mobile-dark.svg');
   --bg-tablet: url('/images/pattern-background-tablet-dark.svg');
   --bg-desktop: url('/images/pattern-background-desktop-dark.svg');
+  --focus-outline: 2px solid hsl(var(--clr-light));
 }

@@ -48,3 +48,7 @@ main {
     column-gap: 3rem;
   }
 }
+
+*:focus-visible {
+  outline: var(--focus-outline);
+}

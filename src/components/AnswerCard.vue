@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, nextTick, onMounted, useTemplateRef, watch } from 'vue';
 import CorrectIcon from '@/components/icons/CorrectIcon.vue';
 import IncorrectIcon from '@/components/icons/IncorrectIcon.vue';
 import { useGlobalStore } from '@/stores';
@@ -32,10 +32,31 @@ const icon = computed(() => {
 
   return '';
 });
+
+const buttonRef = useTemplateRef('button');
+
+onMounted(() => {
+  if (props.index === 0) {
+    buttonRef.value?.focus();
+  }
+});
+
+watch(
+  () => props.answer,
+  async (newAnswer, oldAnswer) => {
+    if (newAnswer !== oldAnswer) {
+      if (props.index === 0 && buttonRef.value) {
+        await nextTick();
+        buttonRef.value.focus();
+      }
+    }
+  },
+);
 </script>
 
 <template>
   <button
+    ref="button"
     class="answer"
     :data-outline="outline"
     :disabled="isActive || isValidated"
@@ -65,6 +86,11 @@ const icon = computed(() => {
   outline: var(--outline-width) solid transparent;
   outline-offset: calc(-1 * var(--outline-width));
   transition: outline-color 150ms ease-out;
+
+  &:focus-visible,
+  &:focus {
+    outline: var(--focus-outline);
+  }
 
   &:not([disabled='']) {
     cursor: pointer;
