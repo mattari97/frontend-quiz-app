@@ -15,9 +15,9 @@ const startQuiz = () => store.setQuiz(props.title);
 
 <template>
   <button class="category-card" @click="startQuiz">
-    <div class="category-card__image" :style="{ 'background-color': props.accentColor }">
+    <span class="category-card__image" :style="{ 'background-color': props.accentColor }">
       <img :src="props.icon" alt="" />
-    </div>
+    </span>
     <span class="category-card__label">{{ props.title }}</span>
   </button>
 </template>

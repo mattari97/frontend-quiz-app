@@ -8,7 +8,7 @@ import HeroSection from '@/components/HeroSection.vue';
 <template>
   <main class="welcome">
     <HeroSection v-bind="welcomeData" />
-    <section class="welcome-categories">
+    <div class="welcome-categories">
       <CategoryCard
         v-for="(quiz, index) in quizzes"
         :key="index"
@@ -16,7 +16,7 @@ import HeroSection from '@/components/HeroSection.vue';
         :icon="quiz.icon"
         :title="quiz.title"
       />
-    </section>
+    </div>
   </main>
 </template>
 

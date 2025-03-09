@@ -32,7 +32,7 @@ const submitAnswer = () => {
 <template>
   <main class="quiz">
     <QuestionHero :question="questionData.question" />
-    <section class="quiz__answers">
+    <div class="quiz__answers">
       <AnswerCard
         v-for="(answer, index) of questionData.options"
         :key="index"
@@ -40,7 +40,7 @@ const submitAnswer = () => {
         :index="index"
       />
       <SubmitButton :label="submitLabel" :disabled="isSubmitDisabled" @submit="submitAnswer" />
-    </section>
+    </div>
   </main>
 </template>
 

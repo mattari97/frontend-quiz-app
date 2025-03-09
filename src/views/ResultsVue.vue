@@ -17,14 +17,14 @@ const resetQuiz = () => store.setQuiz(null);
 <template>
   <main class="results">
     <HeroSection v-bind="resultsData" />
-    <section class="results__content">
+    <div class="results__content">
       <div class="results__card">
         <QuizBadge :quiz="store.quiz!" />
         <span class="results__card-result">{{ result }}</span>
         <span class="results__card-count">out of {{ questionCount }}</span>
       </div>
       <SubmitButton label="Play Again" @click="resetQuiz" />
-    </section>
+    </div>
   </main>
 </template>
 
