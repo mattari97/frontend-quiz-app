@@ -17,12 +17,14 @@ const resetQuiz = () => store.setQuiz(null);
 <template>
   <main class="results">
     <HeroSection v-bind="resultsData" />
-    <section class="results__card">
-      <QuizBadge :quiz="store.quiz!" />
-      <span class="results__card-result">{{ result }}</span>
-      <span class="results__card-count">out of {{ questionCount }}</span>
+    <section class="results__content">
+      <div class="results__card">
+        <QuizBadge :quiz="store.quiz!" />
+        <span class="results__card-result">{{ result }}</span>
+        <span class="results__card-count">out of {{ questionCount }}</span>
+      </div>
+      <SubmitButton label="Play Again" @click="resetQuiz" />
     </section>
-    <SubmitButton label="Play Again" @click="resetQuiz" />
   </main>
 </template>
 
@@ -30,26 +32,40 @@ const resetQuiz = () => store.setQuiz(null);
 .results {
   display: grid;
 
+  &__content {
+    display: grid;
+    grid-auto-rows: min-content;
+    row-gap: var(--quiz-card-gap-outer);
+  }
+
   &__card {
     display: grid;
     grid-auto-rows: min-content;
-    row-gap: 1rem;
     place-items: center;
     padding: 2rem;
     border-radius: 0.75rem;
     background-color: hsl(var(--clr-surface));
-    margin-block-end: 0.75rem;
 
     &-result {
       font-size: var(--fs-display);
       color: hsl(var(--clr-heading));
       font-weight: var(--fw-medium);
       line-height: var(--lh-title);
+      margin-block: 1rem;
     }
 
     &-count {
       font-size: var(--fs-heading-base);
       line-height: var(--lh-none);
+    }
+
+    @media (min-width: 768px) {
+      padding: 3rem;
+      border-radius: 1.5rem;
+
+      &-result {
+        margin-block: 2.5rem 1rem;
+      }
     }
   }
 }

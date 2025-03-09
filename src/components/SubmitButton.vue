@@ -25,9 +25,10 @@ const submit = () => emits('submit');
     cursor: not-allowed;
     opacity: 0.5;
   }
+
   cursor: pointer;
   position: relative;
-  padding: 1rem;
+  height: 4rem;
   background-color: hsl(var(--clr-accent));
   font-size: var(--fs-heading-base);
   font-weight: var(--fw-medium);
@@ -48,6 +49,11 @@ const submit = () => emits('submit');
 
   &:not([disabled='']):hover::before {
     opacity: 1;
+  }
+
+  @media (min-width: 768px) {
+    height: 5rem;
+    border-radius: 1.5rem;
   }
 }
 </style>

@@ -24,10 +24,10 @@ import HeroSection from '@/components/HeroSection.vue';
 .welcome {
   display: grid;
   grid-template-rows: auto 1fr;
-}
 
-.welcome-categories {
-  display: grid;
-  row-gap: 0.75rem;
+  &-categories {
+    display: grid;
+    row-gap: var(--quiz-card-gap-outer);
+  }
 }
 </style>

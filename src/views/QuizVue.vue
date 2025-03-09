@@ -27,8 +27,6 @@ const submitAnswer = () => {
 
   store.goToNextQuestion();
 };
-
-const resetQuiz = () => store.setQuiz(null);
 </script>
 
 <template>
@@ -43,7 +41,6 @@ const resetQuiz = () => store.setQuiz(null);
       />
       <SubmitButton :label="submitLabel" :disabled="isSubmitDisabled" @submit="submitAnswer" />
     </section>
-    <button class="quiz__reset" @click="resetQuiz">Reset Quiz</button>
   </main>
 </template>
 
@@ -53,16 +50,7 @@ const resetQuiz = () => store.setQuiz(null);
 
   &__answers {
     display: grid;
-    row-gap: 0.75rem;
-  }
-
-  &__reset {
-    cursor: pointer;
-    justify-self: center;
-    margin-block-start: 1rem;
-    padding: 0.25rem 0.5rem;
-    font-size: 1rem;
-    color: hsl(var(--clr-heading));
+    row-gap: var(--quiz-card-gap-outer);
   }
 }
 </style>

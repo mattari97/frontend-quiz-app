@@ -57,10 +57,9 @@ const icon = computed(() => {
   --outline-width: 2px;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  min-height: 4rem;
+  gap: var(--quiz-card-gap-inner);
   padding: 0.75rem;
-  border-radius: 0.75rem;
+  border-radius: var(--quiz-card-border-radius);
   background-color: hsl(var(--clr-surface));
   box-shadow: var(--box-shadow);
   outline: var(--outline-width) solid transparent;
@@ -107,9 +106,9 @@ const icon = computed(() => {
     flex-shrink: 0;
     display: grid;
     place-items: center;
-    height: 2.5rem;
+    height: var(--quiz-card-image-height);
     aspect-ratio: 1;
-    border-radius: 6px;
+    border-radius: var(--quiz-card-image-border-radius);
     background-color: hsl(var(--clr-primary-100));
     font-size: var(--fs-heading-base);
     font-weight: var(--fw-medium);
@@ -130,6 +129,10 @@ const icon = computed(() => {
     flex-shrink: 0;
     width: 2rem;
     aspect-ratio: 1;
+
+    @media (min-width: 768px) {
+      width: 2.5rem;
+    }
 
     & > svg {
       width: 100%;

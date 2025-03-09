@@ -21,11 +21,13 @@ const props = defineProps<Props>();
 <style scoped lang="scss">
 .hero-section {
   display: grid;
+  grid-auto-rows: min-content;
   row-gap: 1rem;
-  padding-block: 2rem 2.5rem;
+  padding-block-end: 2.5rem;
 
   &__title {
     display: grid;
+    grid-auto-rows: min-content;
     row-gap: 0.5rem;
     color: hsl(var(--clr-heading));
     font-size: var(--fs-heading-lg);
@@ -42,6 +44,14 @@ const props = defineProps<Props>();
 
   &__caption {
     font-style: italic;
+  }
+
+  @media (min-width: 768px) {
+    padding-block-end: 4rem;
+  }
+
+  @media (min-width: 1152px) {
+    row-gap: 3rem;
   }
 }
 </style>

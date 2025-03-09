@@ -14,11 +14,6 @@ body {
   font-size: var(--fs-body);
   font-style: normal;
   line-height: var(--lh-body);
-}
-
-#app {
-  flex-grow: 1;
-  padding-inline: 1.5rem;
   background-size: auto;
   background-position: top left;
   background-repeat: no-repeat;
@@ -28,8 +23,28 @@ body {
     background-image: var(--bg-tablet);
   }
 
-  @media (min-width: 1280px) {
-    background-size: 100%;
+  @media (min-width: 1152px) {
+    background-size: cover;
     background-image: var(--bg-desktop);
+  }
+}
+
+#app {
+  flex-grow: 1;
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: var(--app-gap);
+  width: min(100%, calc(72rem + 2 * var(--app-gutters-inline)));
+  padding: var(--app-gutters-block) var(--app-gutters-inline);
+  margin-inline: auto;
+}
+
+main {
+  display: grid;
+
+  @media (min-width: 1152px) {
+    grid-template-columns: minmax(0, 465px) 50%;
+    justify-content: space-between;
+    column-gap: 3rem;
   }
 }

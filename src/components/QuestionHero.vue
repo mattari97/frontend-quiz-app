@@ -27,7 +27,7 @@ const progress = computed(() => ((store.questionIndex + 1) / questionCount.value
 .question-hero {
   display: grid;
   grid-auto-rows: min-content;
-  padding-block: 2rem 2.5rem;
+  margin-block-end: 2.5rem;
 
   &__counter {
     font-style: italic;
@@ -42,6 +42,26 @@ const progress = computed(() => ((store.questionIndex + 1) / questionCount.value
     color: hsl(var(--clr-heading));
     line-height: var(--lh-title);
     margin-block-end: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    margin-block-end: 4rem;
+
+    &__counter {
+      margin-block-end: 1.75rem;
+    }
+
+    &__question {
+      margin-block-end: 2.5rem;
+    }
+  }
+
+  @media (min-width: 1152px) {
+    margin-block-end: 0;
+
+    &__question {
+      min-height: 18rem;
+    }
   }
 }
 </style>

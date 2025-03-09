@@ -27,7 +27,7 @@ const { quiz } = defineProps<Props>();
 .header {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
-  height: 4.5rem;
+  height: 2.5rem;
 
   &__theme {
     display: flex;
@@ -39,6 +39,18 @@ const { quiz } = defineProps<Props>();
       width: 16px;
       aspect-ratio: 1;
       color: hsl(var(--clr-theme-icon));
+    }
+  }
+
+  @media (min-width: 768px) {
+    height: 3.5rem;
+
+    &__theme {
+      gap: 1rem;
+
+      &-icon {
+        width: 24px;
+      }
     }
   }
 }

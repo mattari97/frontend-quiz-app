@@ -38,5 +38,13 @@ const { quiz } = defineProps<Props>();
     line-height: var(--lh-none);
     color: hsl(var(--clr-heading));
   }
+
+  @media (min-width: 768px) {
+    gap: 1.5rem;
+
+    &__image {
+      height: 3.5rem;
+    }
+  }
 }
 </style>
