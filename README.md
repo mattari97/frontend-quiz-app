@@ -10,6 +10,7 @@ This is a solution to the [Frontend quiz app challenge on Frontend Mentor](https
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
 - [Contribution](#contribution)
@@ -58,6 +59,46 @@ Users should be able to:
 - Mobile-first workflow
 - [Vue3](https://vuejs.org/) - The Progressive JavaScript Framework
 - [Typescript](https://www.typescriptlang.org/) - Strongly typed JS
+
+### What I learned
+
+I used `useTemplateRef` and `watch` to automatically focus the first answer card whenever the quiz starts or the question changes. This improves keyboard navigation, significantly enhancing accessibility
+
+```ts
+const buttonRef = useTemplateRef('button');
+
+onMounted(() => {
+  if (props.index === 0) {
+    buttonRef.value?.focus();
+  }
+});
+
+watch(
+  () => props.answer,
+  async (newAnswer, oldAnswer) => {
+    if (newAnswer !== oldAnswer) {
+      if (props.index === 0 && buttonRef.value) {
+        await nextTick();
+        buttonRef.value.focus();
+      }
+    }
+  },
+);
+```
+
+```html
+<template>
+  <button
+    ref="button"
+    class="answer"
+    :data-outline="outline"
+    :disabled="isActive || isValidated"
+    @click="store.setAnswer(props.answer)"
+  >
+    ...
+  </button>
+</template>
+```
 
 ### Continued development
 
